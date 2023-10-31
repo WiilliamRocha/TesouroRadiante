@@ -1,5 +1,8 @@
 # app/controllers/feedbacks_controller.rb
 class FeedbacksController < ApplicationController
+  def new
+    @feedback = Feedback.new
+  end
   def create
     @feedback = Feedback.new(feedback_params)
     @feedback.user = current_user
