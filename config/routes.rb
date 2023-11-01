@@ -18,11 +18,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   resources :users, only: [:new, :create, :edit, :update]
    resources :products
-   resources :feedbacks, only: [:create, :destroy]
+   resources :feedbacks, only: [:new ,:create, :destroy]
    resources :sessions, only: [:new, :create, :destroy]
+   resources :orders, only: [:create]
 
-   get 'login', to: 'sessions#new'
-   post 'login', to: 'sessions#create'
-   delete 'logout', to: 'sessions#destroy'
    root 'products#index'
  end
