@@ -1,20 +1,42 @@
-<h1>All Products</h1>
+<div class="navbarindex">
+<div class="meioindex align-item-center">
+</div>
+</div>
 <div class="container mt-5">
   <h1 class="mb-4">Lista de Produtos</h1>
 
-  <%= link_to 'Novo Produto', new_product_path, class: 'btn btn-primary mb-3' %>
+  <%= link_to 'Novo Produto', new_product_path, class: 'btn btn-primary mb-3  justify-content-center' %>
 
   <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-md-4">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h5 class="card-title"><%= link_to product.name, product %></h5>
-            <p class="card-text">Preço: <%= product.price %></p>
-            <p class="card-text">Descrição: <%= product.description.truncate(80) %></p>
-          </div>
+    <%# Sidebar %>
+    <div class="col-md-3">
+      <div class="sidebar border rounded pitches-bar">
+        <div class="d-flex flex-column align-items-center p-2 gap-4 m-2">
+            <ul class="list-group">
+                <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-arrows-left-right"></i>   Comprimento<% end %></li>
+                <li class="list-group-item"><%= link_to root_path do %><i class="fa-solid fa-house"></i>   Largura <% end %></li>
+                <li class="list-group-item"><%= link_to products_path do %><i class="fa-regular fa-money-bill-1"></i>  Faixa de preço<% end %></li>
+                <li class="list-group-item"><%= link_to products_path do %><i class="fa-solid fa-ruler-vertical"></i>   Comprimento <% end %></li>
+                <li class="list-group-item"><%= link_to products_path do %><i class="fa-solid fa-users"></i>   Modelo <% end %></li>
+              </ul>
         </div>
       </div>
-    <% end %>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title"><%= link_to product.name, product %></h5>
+                <p class="card-text">Preço: <%= product.price %></p>
+                <p class="card-text">Descrição: <%= product.description.truncate(80) %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
